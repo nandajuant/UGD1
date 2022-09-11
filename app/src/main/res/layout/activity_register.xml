@@ -12,7 +12,7 @@
         style="@style/Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:text="@string/register_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/register_email"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         style="@style/TextInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,11 +69,12 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_mail"
+        style="@style/TextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/register_mail"
         android:layout_marginTop="15dp"
-        style="@style/TextInputLayout"
+        android:hint="@string/register_mail"
+        app:errorEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/til_password"
@@ -81,29 +82,9 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_mail"
+            style="@style/TextInputEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/TextInputEditText"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/register_date"
-        android:layout_marginTop="15dp"
-        style="@style/TextInputLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_mail"
-        app:startIconDrawable="@drawable/ic_email">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/TextInputEditText"/>
-
+            android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -115,8 +96,8 @@
         style="@style/TextInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_date"
-        app:startIconDrawable="@drawable/ic_email">
+        app:layout_constraintTop_toBottomOf="@+id/til_mail"
+        app:startIconDrawable="@drawable/ic_number">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_phone"
@@ -127,26 +108,64 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        android:id="@+id/til_date"-->
+<!--        style="@style/TextInputLayout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="15dp"-->
+<!--        android:hint="@string/register_date"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/btn_datePicker"-->
+<!--        app:startIconDrawable="@drawable/ic_calender">-->
+
+<!--        <com.google.android.material.textfield.TextInputEditText-->
+<!--            android:id="@+id/date_picker"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            style="@style/TextInputEditText"/>-->
+
+
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_datePicker"
+        style="@style/TextInputEditText"
+        android:layout_width="370dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_right_24"
+        android:hint="@string/register_date"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_phone" />
+
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/btn_register"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="10dp"
         style="@style/ButtonGreen"
-        app:layout_constraintBottom_toTopOf="@+id/tv_havent_account"
+        app:layout_constraintBottom_toTopOf="@+id/btn_have_account"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_havent_account"
-        style="@style/SubTitle"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_have_account"
+        style="@style/Widget.Material3.Button.TextButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
         android:text="@string/register_already_have_account"
         android:textAlignment="center"
-        android:layout_marginBottom="10dp"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
