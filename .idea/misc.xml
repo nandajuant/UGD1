@@ -3,19 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/AndroidStudio/UGD1/app/src/main/res/drawable/bg_button.xml" value="0.229" />
-        <entry key="..\:/AndroidStudio/UGD1/app/src/main/res/drawable/bg_text_field.xml" value="0.229" />
-        <entry key="..\:/AndroidStudio/UGD1/app/src/main/res/drawable/ic_account.xml" value="0.1685" />
-        <entry key="..\:/AndroidStudio/UGD1/app/src/main/res/drawable/ic_baseline_keyboard_arrow_right_24.xml" value="0.1685" />
-        <entry key="..\:/AndroidStudio/UGD1/app/src/main/res/drawable/ic_calender.xml" value="0.1685" />
-        <entry key="..\:/AndroidStudio/UGD1/app/src/main/res/drawable/ic_circle_account.xml" value="0.23" />
-        <entry key="..\:/AndroidStudio/UGD1/app/src/main/res/drawable/ic_email.xml" value="0.1685" />
-        <entry key="..\:/AndroidStudio/UGD1/app/src/main/res/drawable/ic_lock.xml" value="0.1685" />
-        <entry key="..\:/AndroidStudio/UGD1/app/src/main/res/layout/activity_home.xml" value="0.2234375" />
-        <entry key="..\:/AndroidStudio/UGD1/app/src/main/res/layout/activity_login.xml" value="0.264" />
-        <entry key="..\:/AndroidStudio/UGD1/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/AndroidStudio/UGD1/app/src/main/res/layout/activity_register.xml" value="0.264" />
-        <entry key="..\:/AndroidStudio/UGD1/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1685" />
+        <entry key="..\:/UGD1/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1785" />
+        <entry key="..\:/UGD1/app/src/main/res/layout/activity_home.xml" value="0.1331521739130435" />
+        <entry key="..\:/UGD1/app/src/main/res/layout/activity_login.xml" value="0.1331521739130435" />
+        <entry key="..\:/UGD1/app/src/main/res/layout/activity_main.xml" value="0.1331521739130435" />
+        <entry key="..\:/UGD1/app/src/main/res/layout/fragment_account.xml" value="0.1331521739130435" />
+        <entry key="..\:/UGD1/app/src/main/res/layout/fragment_home.xml" value="0.1331521739130435" />
+        <entry key="..\:/UGD1/app/src/main/res/layout/fragment_order.xml" value="0.1331521739130435" />
+        <entry key="..\:/UGD1/app/src/main/res/layout/rv_item_order.xml" value="0.1331521739130435" />
+        <entry key="..\:/UGD1/app/src/main/res/menu/bottom_nav_menu.xml" value="0.17552083333333332" />
       </map>
     </option>
   </component>

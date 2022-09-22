@@ -39,6 +39,7 @@ class RegisterActivity : AppCompatActivity() {
         val day = cal.get(Calendar.DAY_OF_MONTH)
 
         btnRegister.setOnClickListener(View.OnClickListener {
+
             var checkRegister = false
             val username: String = inputUsername.getEditText()?.getText().toString()
             val password: String = inputPassword.getEditText()?.getText().toString()
@@ -64,18 +65,23 @@ class RegisterActivity : AppCompatActivity() {
                 checkRegister
             }
 
-            if(phone.isEmpty()){
+            if(phone.isEmpty()) {
                 inputPhone.setError("Phone Must Be Filled With Text ")
                 checkRegister = false
 
-            } else if (phone.length <11){
-                inputPhone.setError("Phone Number Was To Short")
-                checkRegister = false
             }
 
-
             if(!checkRegister) return@OnClickListener
-            val moveHome = Intent(this@RegisterActivity, HomeActivity::class.java)
+            val moveHome = Intent(this, LoginActivity::class.java)
+            val mBundle = Bundle()
+
+            mBundle.putString("user", username.toString())
+            mBundle.putString("pw", password.toString())
+            mBundle.putString("email", email.toString())
+            mBundle.putString("phone", phone.toString())
+
+            moveHome.putExtra("register", mBundle)
+
             startActivity(moveHome)
 
 
@@ -92,6 +98,7 @@ class RegisterActivity : AppCompatActivity() {
             },myYear,myMonth,day)
             datePickerDialog.show()
         }
+
 
 //        datePicker.setOnClickListener {
 //            val datePicker = DatePickerDialog(this, DatePickerDialog.OnDateSetListener{ view, year, month, dayOfMonth ->

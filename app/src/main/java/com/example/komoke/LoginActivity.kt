@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.get
 import com.google.android.material.textfield.TextInputLayout
 
 
@@ -15,10 +16,14 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var inputPassword: TextInputLayout
     private lateinit var mainLayout: ConstraintLayout
 
+    lateinit var mBundle:Bundle
+    lateinit var vUser:String
+    lateinit var vPw:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
 
 
 //click
@@ -55,7 +60,7 @@ class LoginActivity : AppCompatActivity() {
             val moveRegist = Intent(this,RegisterActivity::class.java)
             startActivity(moveRegist)
         }
-
     }
+
 
 }
