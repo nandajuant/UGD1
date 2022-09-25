@@ -8,19 +8,18 @@ import android.view.View
 import android.widget.Button
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.get
+import androidx.room.Room
 import com.example.komoke.roomUser.UserDB
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 
 
 class LoginActivity : AppCompatActivity() {
 
     val db by lazy { UserDB(this) }
-//    lateinit var registerAdapter: RegisterAdapter
+//    lateinit var db: UserDB
+    lateinit var registerAdapter: RegisterAdapter
 
     private lateinit var inputUsername: TextInputLayout
     private lateinit var inputPassword: TextInputLayout
@@ -35,7 +34,12 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+//        db = Room.databaseBuilder(applicationContext, UserDB::class.java, "12345.db").build()
+//
+//        GlobalScope.launch {
+//            initData() //memanggil function di dalam coroutine
 
+//        }
 
 //click
         inputUsername = findViewById(R.id.til_email)
@@ -81,7 +85,7 @@ class LoginActivity : AppCompatActivity() {
     fun loadData() {
         CoroutineScope(Dispatchers.IO).launch {
             val users = db.userDao().getUser()
-            Log.d("MainActivity","dbResponse: $users")
+            Log.d("LoginActivity","dbResponse: $users")
             withContext(Dispatchers.Main){
 //                registerAdapter.setData( users )
             }
