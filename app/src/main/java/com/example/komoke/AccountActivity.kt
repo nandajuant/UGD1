@@ -15,14 +15,14 @@ class AccountActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_account)
 
-        CoroutineScope(Dispatchers.IO).launch {
-            val users = db.userDao().getUser()
-            Log.d("LoginActivity","dbResponse: $users")
-            withContext(Dispatchers.Main){
-
-
-            }
-        }
+//        CoroutineScope(Dispatchers.IO).launch {
+//            val users = db.userDao().getUser()
+//            Log.d("LoginActivity","dbResponse: $users")
+//            withContext(Dispatchers.Main){
+//
+//
+//            }
+//        }
     }
 
 

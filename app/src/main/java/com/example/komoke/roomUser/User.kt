@@ -8,7 +8,7 @@ import java.util.*
 data class User (
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val user: String,
+    val username: String,
     val password: String,
     val email: String,
     val numphone: String
