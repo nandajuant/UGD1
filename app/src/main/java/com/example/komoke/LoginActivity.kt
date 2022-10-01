@@ -199,7 +199,7 @@ class LoginActivity : AppCompatActivity() {
 
         val builder = NotificationCompat.Builder(this, CHANNEL_ID_1)
             .setSmallIcon(R.drawable.ic_baseline_looks_two_24)
-            .setContentTitle("Selamat Login" + inputUsername.getEditText()?.getText().toString())
+            .setContentTitle("Selamat Login : " + inputUsername.getEditText()?.getText().toString())
             .setContentText("Silahkan pilih agenda apa yang ingin anda lakukan")
             .setPriority(NotificationCompat.PRIORITY_LOW)
 
