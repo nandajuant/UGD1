@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "51759279820",
+    "project_id": "komoke-b3c79",
+    "storage_bucket": "komoke-b3c79.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:51759279820:android:b8ec4697bac481f0409c69",
+        "android_client_info": {
+          "package_name": "com.example.komoke"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "51759279820-vc2mofe2h75qiqc84dgc782tf6cbfmgk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCG7AsO44uZ28iCQoPiwOzhmqDBAo4s3hE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "51759279820-vc2mofe2h75qiqc84dgc782tf6cbfmgk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
