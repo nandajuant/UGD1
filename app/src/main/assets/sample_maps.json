@@ -1,0 +1,37 @@
+{
+  "results": [
+    {
+      "geometry": {
+        "location": {
+          "lat": -7.779433,
+          "lng": 110.415782
+        }
+      },
+      "name": "Kampus 3 Universitas Atma Jaya Yogyakarta",
+      "vicinity": "Jl. Babarsari No. 43, Janti, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281"
+    },
+
+    {
+      "geometry": {
+        "location": {
+          "lat": -7.792854081997981,
+          "lng": 110.36618213952053
+        }
+      },
+      "name": "Mall Malioboro Yogyakarta",
+      "vicinity": "Jl. Malioboro No.52-58, Suryatmajan, Kec. Danurejan, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55213"
+    },
+
+    {
+      "geometry": {
+        "location": {
+          "lat": -7.749383092829289,
+          "lng": 110.36960679719103
+        }
+      },
+      "name": "Monumen Yogya Kembali",
+      "vicinity": "Jl. Ring Road Utara, Jongkang, Sariharjo, Kec. Ngaglik, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55581"
+    }
+  ],
+  "status": "OK"
+}
