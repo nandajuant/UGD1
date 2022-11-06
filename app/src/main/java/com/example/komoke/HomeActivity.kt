@@ -37,6 +37,11 @@ class HomeActivity : AppCompatActivity() {
                         loadFragment(AccountFragment())
                         return@setOnNavigationItemReselectedListener
                     }
+
+                    R.id.navigation_map -> {
+                        loadFragment(MapFragment())
+                        return@setOnNavigationItemReselectedListener
+                    }
                 }
             }
         }

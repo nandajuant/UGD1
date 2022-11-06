@@ -18,4 +18,10 @@
         android:icon="@drawable/ic_baseline_person_24"
         android:iconTint="#00C9B8"
         android:title="My Account" />
+
+    <item
+        android:id="@+id/navigation_map"
+        android:icon="@drawable/ic_baseline_map"
+        android:iconTint="#00C9B8"
+        android:title="My Map" />
 </menu>
