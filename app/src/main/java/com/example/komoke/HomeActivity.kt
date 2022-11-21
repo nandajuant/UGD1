@@ -10,7 +10,9 @@ import android.widget.EditText
 import androidx.fragment.app.Fragment
 import com.example.komoke.OrderFragment
 import com.example.komoke.AccountFragment
+import com.example.komoke.maps.MapsActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeActivity : AppCompatActivity() {
 
@@ -37,8 +39,14 @@ class HomeActivity : AppCompatActivity() {
                         loadFragment(AccountFragment())
                         return@setOnNavigationItemReselectedListener
                     }
+
                 }
             }
+
+//            btnHotel.setOnClickListener(){
+//            val moveMaps = Intent(this, MapsActivity::class.java)
+//            startActivity(moveMaps)
+//        }
         }
 
         private fun loadFragment(fragment: Fragment){
