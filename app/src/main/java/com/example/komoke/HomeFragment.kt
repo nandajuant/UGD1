@@ -56,5 +56,6 @@ class HomeFragment : Fragment() {
 //        }
 //    }
 
+    // pembuat mengalami kendala di HomeActivity dan HomeFragment
 
 }

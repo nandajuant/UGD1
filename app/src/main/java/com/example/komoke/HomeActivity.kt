@@ -56,5 +56,6 @@ class HomeActivity : AppCompatActivity() {
             transaction.commit()
         }
 
+//          Mungkin perlu tambahkan adapter khusus profil...
 
 }
