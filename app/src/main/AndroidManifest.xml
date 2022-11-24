@@ -16,10 +16,13 @@
         android:theme="@style/Theme.Komoke"
         tools:targetApi="31">
         <activity
-            android:name=".PesawatActivity"
+            android:name=".pesawat.PesawatActivity"
             android:exported="false" />
         <activity
-            android:name=".EventActivity"
+            android:name=".event.AddEditEvent"
+            android:exported="false" />
+        <activity
+            android:name=".maps.MapsActivity"
             android:exported="false" />
         <activity
             android:name=".SplashActivity"

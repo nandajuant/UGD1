@@ -29,19 +29,49 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupListener()
+
+
+
+//        btnPesawat.setOnClickListener(){
+//            requireActivity().run{
+//                startActivity(Intent(this, PesawatActivity::class.java))
+//                finish()
+//            }
+//        }
+
+//        btnPesawat.setOnClickListener() {
+//            activity?.let {
+//                val intent = Intent(it, PesawatActivity::class.java)
+//                it.startActivity(intent)
+//            }
+//        }
+
+
+
+    }
+
+    private fun setupListener(){
+        btnPesawat.setOnClickListener() {
+            startActivity(
+                Intent(requireActivity().applicationContext, PesawatActivity::class.java)
+            )
+        }
+
         btnEvent.setOnClickListener(){
-            val moveEvent = Intent(activity, EventActivity::class.java)
-            activity?.startActivity(moveEvent)
+            startActivity(
+                Intent(requireActivity().applicationContext, EventActivity::class.java)
+            )
+//            val moveEvent = Intent(activity, EventActivity::class.java)
+//            activity?.startActivity(moveEvent)
         }
 
         btnHotel.setOnClickListener(){
-            val moveMaps = Intent(activity, MapsActivity::class.java)
-            activity?.startActivity(moveMaps)
-        }
-
-        btnPesawat.setOnClickListener(){
-            val movePesawat = Intent(activity, PesawatActivity::class.java)
-            activity?.startActivity(movePesawat)
+            startActivity(
+                Intent(requireActivity().applicationContext, MapsActivity::class.java)
+            )
+//            val moveMaps =  Intent(context, MapsActivity::class.java)
+//            startActivity(moveMaps)
         }
     }
 
