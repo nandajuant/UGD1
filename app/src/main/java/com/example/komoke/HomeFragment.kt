@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import com.example.komoke.HomeActivity
 import com.example.komoke.event.EventActivity
+import com.example.komoke.pesawat.PDFActivity
 import com.example.komoke.pesawat.PesawatActivity
 
 class HomeFragment : Fragment() {
@@ -54,7 +55,7 @@ class HomeFragment : Fragment() {
     private fun setupListener(){
         btnPesawat.setOnClickListener() {
             startActivity(
-                Intent(requireActivity().applicationContext, PesawatActivity::class.java)
+                Intent(requireActivity().applicationContext, PDFActivity::class.java)
             )
         }
 

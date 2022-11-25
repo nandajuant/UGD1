@@ -5,6 +5,19 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,6 +28,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Komoke"
         tools:targetApi="31">
+        <activity
+            android:name=".pesawat.PDFActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".pesawat.PesawatActivity"
             android:exported="false" />
