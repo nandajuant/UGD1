@@ -7,73 +7,41 @@
     android:orientation="vertical"
     tools:context=".pesawat.PDFActivity">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_pesawat"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+    <EditText
+        android:id="@+id/etPesawat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="8dp"
-        android:hint="Pesawat">
+        android:layout_margin="12dp"
+        android:ems="10"
+        android:hint="Nama Pesawat"
+        android:inputType="text" />
 
-        <AutoCompleteTextView
-            android:id="@+id/edPesawat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="none"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_berangkat"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+    <EditText
+        android:id="@+id/etBerangkat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="8dp"
-        android:hint="Keberangkatan">
+        android:layout_margin="12dp"
+        android:ems="10"
+        android:hint="Bandara Keberangkatan"
+        android:inputType="text" />
 
-        <AutoCompleteTextView
-            android:id="@+id/edBerangkat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="none"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_tujuan"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+    <EditText
+        android:id="@+id/etTujuan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="8dp"
-        android:hint="Tujuan">
+        android:layout_margin="12dp"
+        android:ems="10"
+        android:hint="Bandara Tujuan"
+        android:inputType="text" />
 
-        <AutoCompleteTextView
-            android:id="@+id/edTujuan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="none"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_kelas"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+    <EditText
+        android:id="@+id/etKelas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="8dp"
-        android:hint="Kelas">
-
-        <AutoCompleteTextView
-            android:id="@+id/edKelas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="none"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
+        android:layout_margin="12dp"
+        android:ems="10"
+        android:hint="Kelas"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/etJumlah"

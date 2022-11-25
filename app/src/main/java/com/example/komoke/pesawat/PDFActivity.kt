@@ -39,59 +39,6 @@ import java.time.LocalTime
 import java.time.format.DateTimeFormatter
 
 class PDFActivity : AppCompatActivity() {
-    companion object {
-        private val PESAWAT_LIST = arrayOf("Lion Air", "Batik Air", "Garuda Indonesia", "Citilink")
-        private val BERANGKAT_LIST = arrayOf(
-            "Yogyakarta",
-            "Jakarta",
-            "Surabaya",
-            "Semarang",
-            "Denpasar"
-        )
-        private val TUJUAN_LIST = arrayOf(
-            "Yogyakarta",
-            "Jakarta",
-            "Surabaya",
-            "Semarang",
-            "Denpasar"
-        )
-        private val KELAS_LIST = arrayOf("Ekonomi", "Premium Ekonomi", "Bisnis", "First")
-
-    }
-
-
-    private var edPesawat: AutoCompleteTextView? = null
-    private var edBerangkat: AutoCompleteTextView? = null
-    private var edTujuan: AutoCompleteTextView? = null
-    private var edKelas: AutoCompleteTextView? = null
-
-    fun setExposedDropDownMenu() {
-        val adapterPesawat: ArrayAdapter<String> = ArrayAdapter<String>(
-            this,
-            R.layout.item_list, PESAWAT_LIST
-        )
-        edPesawat!!.setAdapter(adapterPesawat)
-
-        val adapterBerangkat: ArrayAdapter<String> = ArrayAdapter<String>(
-            this,
-            R.layout.item_list, BERANGKAT_LIST
-        )
-        edBerangkat!!.setAdapter(adapterBerangkat)
-
-        val adapterTujuan: ArrayAdapter<String> = ArrayAdapter<String>(
-            this,
-            R.layout.item_list, TUJUAN_LIST
-        )
-        edTujuan!!.setAdapter(adapterTujuan)
-
-        val adapterKelas: ArrayAdapter<String> = ArrayAdapter<String>(
-            this,
-            R.layout.item_list, KELAS_LIST
-        )
-        edKelas!!.setAdapter(adapterKelas)
-
-    }
-
     private var binding: ActivityPdfactivityBinding? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -99,13 +46,12 @@ class PDFActivity : AppCompatActivity() {
         val view: View = binding!!.root
         setContentView(view)
 
-        setExposedDropDownMenu()
 
         binding!!.buttonSave.setOnClickListener {
-            val pesawat = binding!!.edPesawat.text.toString()
-            val berangkat = binding!!.edBerangkat.text.toString()
-            val tujuan = binding!!.edTujuan.text.toString()
-            val kelas = binding!!.edKelas.text.toString()
+            val pesawat = binding!!.etPesawat.text.toString()
+            val berangkat = binding!!.etBerangkat.text.toString()
+            val tujuan = binding!!.etTujuan.text.toString()
+            val kelas = binding!!.etKelas.text.toString()
             val jumlah = binding!!.etJumlah.text.toString()
 
             try {
