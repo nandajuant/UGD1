@@ -1,0 +1,35 @@
+{
+  "results": [
+    {
+      "geometry": {
+        "location": {
+          "lat": -7.779433,
+          "lng": 110.415782
+        }
+      },
+      "name": "Kampus 3 Universitas Atma Jaya Yogyakarta",
+      "vicinity": "Jl. Babarsari No.43, Janti, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": -7.7738153,
+          "lng": 110.3684775
+        }
+      },
+      "name": "Hotel Tentrem",
+      "vicinity": "Jl. P. Mangkubumi No.72A, Cokrodiningratan, Kec. Jetis, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55233"
+    },
+    {
+      "geometry": {
+        "location": {
+          "lat": -7.7876382,
+          "lng": 110.3622121
+        }
+      },
+      "name": "Hotel Horison",
+      "vicinity": "Jl. Babarsari No.43, Janti, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281"
+    }
+  ],
+  "status": "OK"
+}
