@@ -15,6 +15,7 @@ import com.example.komoke.HomeActivity
 import com.example.komoke.event.EventActivity
 import com.example.komoke.pesawat.PDFActivity
 import com.example.komoke.pesawat.PesawatActivity
+import com.example.komoke.scantiket.ScanActivity
 
 class HomeFragment : Fragment() {
 
@@ -73,6 +74,12 @@ class HomeFragment : Fragment() {
             )
 //            val moveMaps =  Intent(context, MapsActivity::class.java)
 //            startActivity(moveMaps)
+        }
+
+        btnScan.setOnClickListener() {
+            startActivity(
+                Intent(requireActivity().applicationContext, ScanActivity::class.java)
+            )
         }
     }
 
