@@ -53,7 +53,6 @@ class AddEditEvent : AppCompatActivity() {
         }
     }
 
-
     private fun getEventById(id: Long) {
         setLoading(true)
         val stringRequest: StringRequest = object :
@@ -103,6 +102,17 @@ class AddEditEvent : AppCompatActivity() {
 
     private fun createEvent() {
         setLoading(true)
+
+        if(etNama!!.text.toString().isEmpty()){
+            Toast.makeText(this@AddEditEvent, "Nama tidak boleh kosong!", Toast.LENGTH_SHORT).show()
+        }
+        else if(etTanggal!!.text.toString().isEmpty()){
+            Toast.makeText(this@AddEditEvent, "Tanggal tidak boleh kosong!", Toast.LENGTH_SHORT).show()
+        }
+        else if(etidEvent!!.text.toString().isEmpty()){
+            Toast.makeText(this@AddEditEvent, "ID tidak boleh kosong!", Toast.LENGTH_SHORT).show()
+        }
+        else{
 
         val event = EventModel(
             etNama!!.text.toString(),
@@ -160,6 +170,9 @@ class AddEditEvent : AppCompatActivity() {
                 }
             }
         queue!!.add(stringRequest)
+
+        }
+        setLoading(false)
     }
 
 
