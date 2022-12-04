@@ -22,9 +22,8 @@ import java.nio.charset.StandardCharsets
 class AddEditEvent : AppCompatActivity() {
 
     private var etNama: EditText? = null
-    private var etNPM: EditText? = null
-    private var etTanggal: AutoCompleteTextView? = null
-    private var etidEvent: AutoCompleteTextView? = null
+    private var etTanggal: EditText? = null
+    private var etidEvent: EditText? = null
     private var layoutLoading: LinearLayout? = null
     private var queue: RequestQueue? = null
 

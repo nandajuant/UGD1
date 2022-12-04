@@ -1,6 +1,7 @@
 package com.example.komoke.pesawat
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.os.Build
@@ -12,9 +13,13 @@ import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import com.android.volley.AuthFailureError
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
 import com.example.komoke.R
 import com.example.komoke.databinding.ActivityMainBinding
 import com.example.komoke.databinding.ActivityPdfactivityBinding
+import com.google.gson.Gson
 import com.itextpdf.barcodes.BarcodeQRCode
 import com.itextpdf.io.image.ImageDataFactory
 import com.itextpdf.io.source.ByteArrayOutputStream
@@ -31,9 +36,14 @@ import com.itextpdf.layout.properties.TextAlignment
 import com.itextpdf.svg.converter.SvgConverter.createPdf
 import com.lowagie.text.PageSize
 import com.lowagie.text.PageSize.*
+import kotlinx.android.synthetic.main.activity_add_edit.*
+import kotlinx.android.synthetic.main.activity_pdfactivity.*
+import org.json.JSONObject
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.FileOutputStream
+import java.lang.Exception
+import java.nio.charset.StandardCharsets
 import java.time.LocalDate
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
@@ -71,6 +81,7 @@ class PDFActivity : AppCompatActivity() {
             }
         }
     }
+
 
     @SuppressLint("ObsoleteSdkInt")
     @RequiresApi(api = Build.VERSION_CODES.O)
