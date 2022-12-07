@@ -17,13 +17,24 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import com.android.volley.AuthFailureError
+import com.android.volley.RequestQueue
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.example.komoke.databinding.ActivityMainBinding
+import com.example.komoke.register.AccountApi
+import com.example.komoke.register.AccountModel
 import com.example.komoke.roomUser.UserDB
 import com.google.android.material.textfield.TextInputLayout
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.view.*
 import kotlinx.android.synthetic.main.activity_register.view.*
 import kotlinx.coroutines.*
+import org.json.JSONObject
+import java.lang.Exception
+import java.nio.charset.StandardCharsets
 
 
 class LoginActivity : AppCompatActivity() {
@@ -32,8 +43,9 @@ class LoginActivity : AppCompatActivity() {
 //    lateinit var db: UserDB
     lateinit var registerAdapter: RegisterAdapter
 
-    private lateinit var inputUsername: TextInputLayout
-    private lateinit var inputPassword: TextInputLayout
+    private var queue: RequestQueue? = null
+    private var inputUsername: EditText? = null
+    private var inputPassword: EditText? = null
     private lateinit var mainLayout: ConstraintLayout
 
     lateinit var usrnm: String
@@ -68,22 +80,35 @@ class LoginActivity : AppCompatActivity() {
 //        }
 
 //click
-        inputUsername = findViewById(R.id.til_emailLogin)
-        inputPassword = findViewById(R.id.til_passwordLogin)
+//        inputUsername = findViewById(R.id.til_emailLogin)
+//        inputPassword = findViewById(R.id.til_passwordLogin)
+
+        queue = Volley.newRequestQueue(this)
+
+        inputUsername = findViewById(R.id.et_emailLogin)
+        inputPassword = findViewById(R.id.et_passwordLogin)
+
         mainLayout = findViewById(R.id.mainLayout)
         val btnLogin: Button = findViewById(R.id.btn_login)
         val btnHaventAccount: Button = findViewById(R.id.btn_havent_account)
 
         getBundle()
-        usrnm=""
-        pwd=""
+        usrnm = ""
+        pwd = ""
 
-        btnLogin.setOnClickListener(View.OnClickListener {
+        btnLogin.setOnClickListener { loginAccount() }
+        btnHaventAccount.setOnClickListener {
+            val moveRegist = Intent(this,RegisterActivity::class.java)
+            startActivity(moveRegist)
+        }
+    }
+
+    private fun loginAccount(){
 //            inputUsername = findViewById(R.id.et_email)
 //            inputPassword = findViewById(R.id.et_password)
-            var checkLogin = false
-            val username: String = inputUsername.getEditText()?.getText().toString()
-            val password: String = inputPassword.getEditText()?.getText().toString()
+//            var checkLogin = false
+//            val username: String = inputUsername.getEditText()?.getText().toString()
+//            val password: String = inputPassword.getEditText()?.getText().toString()
 
             // ini kalo dibuka loginnya eror, pake default admin-admin juga eror
 
@@ -91,67 +116,118 @@ class LoginActivity : AppCompatActivity() {
 //                loadData(inputUsername.getEditText()?.getText().toString())
 //            }
 
-            if(username.isEmpty()){
-                inputUsername.setError("Username Must Be Filled With Text")
-                checkLogin = false
-            }
+            if (inputUsername!!.text.toString().isEmpty()) {
+                Toast.makeText(
+                    this@LoginActivity,
+                    "Username tidak boleh kosong!",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else if (inputPassword!!.text.toString().isEmpty()) {
+                Toast.makeText(
+                    this@LoginActivity,
+                    "Password tidak boleh kosong!",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+//                val id = intent.getLongExtra("id", -1)
+//                getAccountById(id)
 
-            if(password.isEmpty()){
-               inputPassword.setError("Password Must Be Filled With Text")
-                checkLogin = false
-            }
+                if (inputUsername!!.text.toString() == "admin" && inputPassword!!.text.toString() == "admin") {
+//                    checkLogin = true
+                    var strUser: String = usrnm
+                    var strPw: String = pwd
+                    val editor: SharedPreferences.Editor = sharedPreferences!!.edit()
+                    editor.putString(userK, strUser)
+                    editor.putString(passK, strPw)
+                    editor.apply()
+                    sendNotification2()
 
-            if(username == "admin" && password == "admin"){
-                checkLogin = true
-                var strUser: String = usrnm
-                var strPw: String = pwd
-                val editor: SharedPreferences.Editor = sharedPreferences!!.edit()
-                editor.putString(userK, strUser)
-                editor.putString(passK, strPw)
-                editor.apply()
-                sendNotification2()
-            }
-            else if(username == usrnm && password == pwd){
-                checkLogin = true
-                var strUser: String = usrnm
-                var strPw: String = pwd
-                val editor: SharedPreferences.Editor = sharedPreferences!!.edit()
-                editor.putString(userK, strUser)
-                editor.putString(passK, strPw)
-                editor.apply()
-                sendNotification2()
-            }
-            else if(username != usrnm && password != pwd){
-                checkLogin = false
-                val builder: AlertDialog.Builder = AlertDialog.Builder(this@LoginActivity)
-                builder.setTitle("Username atau Password Salah")
-                builder.setMessage("Isi dengan benar!")
-                    .setPositiveButton("Yes"){ dialog, which ->
-                    }
-                    .show()
-            }
-            if(!checkLogin) return@OnClickListener
-            val moveHome = Intent(this@LoginActivity, HomeActivity::class.java)
-            startActivity(moveHome)
+                    val moveHome = Intent(this@LoginActivity, HomeActivity::class.java)
+                    startActivity(moveHome)
 
 
-        })
+                } else if (inputUsername!!.text.toString() == usrnm && inputPassword!!.text.toString() == pwd) {
+//                    checkLogin = true
+                    var strUser: String = usrnm
+                    var strPw: String = pwd
+                    val editor: SharedPreferences.Editor = sharedPreferences!!.edit()
+                    editor.putString(userK, strUser)
+                    editor.putString(passK, strPw)
+                    editor.apply()
+                    sendNotification2()
 
-        btnHaventAccount.setOnClickListener {
-            val moveRegist = Intent(this,RegisterActivity::class.java)
-            startActivity(moveRegist)
+                    val moveHome = Intent(this@LoginActivity, HomeActivity::class.java)
+                    startActivity(moveHome)
+
+                } else if (inputUsername!!.text.toString() != usrnm && inputPassword!!.text.toString() != pwd) {
+//                    checkLogin = false
+                    val builder: AlertDialog.Builder = AlertDialog.Builder(this@LoginActivity)
+                    builder.setTitle("Username atau Password Salah")
+                    builder.setMessage("Isi dengan benar!")
+                        .setPositiveButton("Yes") { dialog, which ->
+                        }
+                        .show()
+                }
+
+            }
+
         }
-    }
+
+
+
+//    private fun getAccountById(id: Long) {
+////        setLoading(true)
+//        val stringRequest: StringRequest = object :
+//            StringRequest(
+//                Method.GET,
+//                AccountApi.GET_BY_ID_URL + id,
+//                Response.Listener { response ->
+//                    val gson = Gson()
+//                    val event = gson.fromJson(response, AccountModel::class.java)
+//
+//                    Toast.makeText(
+//                        this@LoginActivity,
+//                        "Data berhasil diambil!!",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+////                    setLoading(false)
+//                },
+//                Response.ErrorListener { error ->
+////                    setLoading(false)
+//
+//                    try {
+//                        val responseBody =
+//                            String(error.networkResponse.data, StandardCharsets.UTF_8)
+//                        val errors = JSONObject(responseBody)
+//                        Toast.makeText(
+//                            this@LoginActivity,
+//                            errors.getString("message"),
+//                            Toast.LENGTH_SHORT
+//                        ).show()
+//                    } catch (e: Exception) {
+//                        Toast.makeText(this@LoginActivity, e.message, Toast.LENGTH_SHORT).show()
+//                    }
+//                }) {
+//            @Throws(AuthFailureError::class)
+//            override fun getHeaders(): Map<String, String> {
+//                val headers = HashMap<String, String>()
+//                headers["Accept"] = "application/json"
+//                return headers
+//            }
+//        }
+//        queue!!.add(stringRequest)
+//    }
+
 
     fun getBundle(){
 
         //preference
         sharedPreferences = getSharedPreferences(myPreference, Context.MODE_PRIVATE)
         if (sharedPreferences!!.contains(userK)){
-            inputUsername.getEditText()?.setText(sharedPreferences!!.getString(userK, ""))
+            inputPassword!!.setText(sharedPreferences!!.getString(userK, ""))
         }
         if (sharedPreferences!!.contains(passK)){
-            inputPassword.getEditText()?.setText(sharedPreferences!!.getString(passK, ""))
+            inputPassword!!.setText(sharedPreferences!!.getString(passK, ""))
         }
     }
 
@@ -194,7 +270,7 @@ class LoginActivity : AppCompatActivity() {
         val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0,intent, PendingIntent.FLAG_MUTABLE)
         val builder = NotificationCompat.Builder(this, CHANNEL_ID_1)
             .setSmallIcon(R.drawable.ic_message)
-            .setContentTitle("Welcome To Komoke: " + inputUsername.getEditText()?.getText().toString())
+            .setContentTitle("Welcome To Komoke: " + inputUsername!!.text.toString())
             .setContentText("You Have A New Message")
             .setLargeIcon(largeIcon)
             .setStyle(NotificationCompat.BigTextStyle()
