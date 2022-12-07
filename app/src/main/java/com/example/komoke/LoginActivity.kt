@@ -81,59 +81,65 @@ class LoginActivity : AppCompatActivity() {
         btnLogin.setOnClickListener(View.OnClickListener {
 //            inputUsername = findViewById(R.id.et_email)
 //            inputPassword = findViewById(R.id.et_password)
-            var checkLogin = false
-            val username: String = inputUsername.getEditText()?.getText().toString()
-            val password: String = inputPassword.getEditText()?.getText().toString()
 
-            // ini kalo dibuka loginnya eror, pake default admin-admin juga eror
+            if(inputUsername.getEditText()?.getText().toString().isEmpty()){
+                Toast.makeText(this@LoginActivity, "Username tidak boleh kosong!", Toast.LENGTH_SHORT).show()
+            }
+            else if(inputPassword.getEditText()?.getText().toString().isEmpty()){
+                Toast.makeText(this@LoginActivity, "Password tidak boleh kosong!", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                var checkLogin = false
+                val username: String = inputUsername.getEditText()?.getText().toString()
+                val password: String = inputPassword.getEditText()?.getText().toString()
+
+                // ini kalo dibuka loginnya eror, pake default admin-admin juga eror
 
 //            lifecycleScope.launch{
 //                loadData(inputUsername.getEditText()?.getText().toString())
 //            }
 
-            if(username.isEmpty()){
-                inputUsername.setError("Username Must Be Filled With Text")
-                checkLogin = false
-            }
+                if (username.isEmpty()) {
+                    inputUsername.setError("Username Must Be Filled With Text")
+                    checkLogin = false
+                }
 
-            if(password.isEmpty()){
-               inputPassword.setError("Password Must Be Filled With Text")
-                checkLogin = false
-            }
+                if (password.isEmpty()) {
+                    inputPassword.setError("Password Must Be Filled With Text")
+                    checkLogin = false
+                }
 
-            if(username == "admin" && password == "admin"){
-                checkLogin = true
-                var strUser: String = usrnm
-                var strPw: String = pwd
-                val editor: SharedPreferences.Editor = sharedPreferences!!.edit()
-                editor.putString(userK, strUser)
-                editor.putString(passK, strPw)
-                editor.apply()
-                sendNotification2()
+                if (username == "admin" && password == "admin") {
+                    checkLogin = true
+                    var strUser: String = usrnm
+                    var strPw: String = pwd
+                    val editor: SharedPreferences.Editor = sharedPreferences!!.edit()
+                    editor.putString(userK, strUser)
+                    editor.putString(passK, strPw)
+                    editor.apply()
+                    sendNotification2()
+                } else if (username == usrnm && password == pwd) {
+                    checkLogin = true
+                    var strUser: String = usrnm
+                    var strPw: String = pwd
+                    val editor: SharedPreferences.Editor = sharedPreferences!!.edit()
+                    editor.putString(userK, strUser)
+                    editor.putString(passK, strPw)
+                    editor.apply()
+                    sendNotification2()
+                } else if (username != usrnm && password != pwd) {
+                    checkLogin = false
+                    val builder: AlertDialog.Builder = AlertDialog.Builder(this@LoginActivity)
+                    builder.setTitle("Username atau Password Salah")
+                    builder.setMessage("Isi dengan benar!")
+                        .setPositiveButton("Yes") { dialog, which ->
+                        }
+                        .show()
+                }
+                if (!checkLogin) return@OnClickListener
+                val moveHome = Intent(this@LoginActivity, HomeActivity::class.java)
+                startActivity(moveHome)
             }
-            else if(username == usrnm && password == pwd){
-                checkLogin = true
-                var strUser: String = usrnm
-                var strPw: String = pwd
-                val editor: SharedPreferences.Editor = sharedPreferences!!.edit()
-                editor.putString(userK, strUser)
-                editor.putString(passK, strPw)
-                editor.apply()
-                sendNotification2()
-            }
-            else if(username != usrnm && password != pwd){
-                checkLogin = false
-                val builder: AlertDialog.Builder = AlertDialog.Builder(this@LoginActivity)
-                builder.setTitle("Username atau Password Salah")
-                builder.setMessage("Isi dengan benar!")
-                    .setPositiveButton("Yes"){ dialog, which ->
-                    }
-                    .show()
-            }
-            if(!checkLogin) return@OnClickListener
-            val moveHome = Intent(this@LoginActivity, HomeActivity::class.java)
-            startActivity(moveHome)
-
 
         })
 
