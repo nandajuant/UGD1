@@ -23,6 +23,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.komoke.databinding.ActivityMainBinding
+import com.example.komoke.event.EventModel
 import com.example.komoke.register.AccountApi
 import com.example.komoke.register.AccountModel
 import com.example.komoke.roomUser.UserDB
@@ -35,6 +36,7 @@ import kotlinx.coroutines.*
 import org.json.JSONObject
 import java.lang.Exception
 import java.nio.charset.StandardCharsets
+import java.util.*
 
 
 class LoginActivity : AppCompatActivity() {
@@ -101,6 +103,8 @@ class LoginActivity : AppCompatActivity() {
             val moveRegist = Intent(this,RegisterActivity::class.java)
             startActivity(moveRegist)
         }
+
+
     }
 
     private fun loginAccount(){
@@ -171,7 +175,42 @@ class LoginActivity : AppCompatActivity() {
 
             }
 
-        }
+
+
+
+    }
+
+//    override fun onQueryTextSubmit(s: String?): Boolean {
+//        filter.filter(s)
+//        return false
+//    }
+//
+//    override fun getFilter(): Filter {
+//        return object : Filter() {
+//            override fun performFiltering(charSequence : CharSequence): FilterResults {
+//                val charSequenceString = charSequence.toString()
+//                val filtered: MutableList<AccountModel> = java.util.ArrayList()
+//                if (charSequenceString.isEmpty()) {
+//                    filtered.addAll(accountList)
+//                } else {
+//                    for (account in accountList) {
+//                        if (account.nama.lowercase(Locale.getDefault())
+//                                .contains(charSequenceString.lowercase(Locale.getDefault()))
+//                        ) filtered.add (account)
+//                    }
+//                }
+//                val filterResults = FilterResults()
+//                filterResults.values = filtered
+//                return filterResults
+//            }
+//
+//            override fun publishResults(charSequence: CharSequence, filterResults: FilterResults) {
+//                filteredAccountList.clear()
+//                filteredAccountList.addAll((filterResults.values as List<AccountModel>))
+//                notifyDataSetChanged()
+//            }
+//        }
+//    }
 
 
 
