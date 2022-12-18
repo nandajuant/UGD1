@@ -24,9 +24,9 @@ import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.komoke.adapter.SliderAdapter
+import com.example.komoke.bus.BusActivity
 import com.example.komoke.databinding.FragmentHomeBinding
-
-
+import com.example.komoke.kereta.KeretaActivity
 
 
 class HomeFragment : Fragment() {
@@ -115,6 +115,22 @@ class HomeFragment : Fragment() {
             startActivity(
                 Intent(requireActivity().applicationContext, ScanActivity::class.java)
             )
+        }
+
+        btnKereta.setOnClickListener(){
+            startActivity(
+                Intent(requireActivity().applicationContext, KeretaActivity::class.java)
+            )
+//            val moveEvent = Intent(activity, EventActivity::class.java)
+//            activity?.startActivity(moveEvent)
+        }
+
+        btnBus.setOnClickListener(){
+            startActivity(
+                Intent(requireActivity().applicationContext, BusActivity::class.java)
+            )
+//            val moveEvent = Intent(activity, EventActivity::class.java)
+//            activity?.startActivity(moveEvent)
         }
     }
 
